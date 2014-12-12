@@ -8,7 +8,7 @@ CXX = g++-4.9
 #endif
 FLAG = -std=c++11
 
-all: anagram binaryfromarray doublestar hanoi hashtable instring list matrix queuebystacks removedupli reversechar simplestack simpletree spacereplace stacksorting uniqueString simpleopencl
+all: anagram binaryfromarray doublestar hanoi hashtable instring list matrix queuebystacks removedupli reversechar simplestack simpletree spacereplace stacksorting uniqueString simpleopencl simpleopenmp
 
 anagram: anagram.cpp
 	${CXX} anagram.cpp -o anagram ${FLAG}
@@ -58,9 +58,11 @@ stacksorting: stacksorting.cpp
 uniqueString: uniqueString.cpp
 	${CXX} uniqueString.cpp -o uniqueString ${FLAG}
 
-
 simpleopencl: simpleopencl.cpp
 	${CXX} simpleopencl.cpp -o simpleopencl ${FLAG} ${OPENCL}
 
+simpleopenmp: simpleopenmp.cpp
+	${CXX} simpleopenmp.cpp -o simpleopenmp ${FLAG} -fopenmp
+
 clean:
-	rm -rf *o anagram binaryfromarray doublestar hanoi hashtable instring list matrix queuebystacks removedupli reversechar simplestack simpletree spacereplace stacksorting uniqueString simpleopencl
+	rm -rf *o anagram binaryfromarray doublestar hanoi hashtable instring list matrix queuebystacks removedupli reversechar simplestack simpletree spacereplace stacksorting uniqueString simpleopencl simpleopenmp
