@@ -3,6 +3,16 @@ const int count = 100;
 #include <stdio.h>
 #include <math.h>
 #include <omp.h>
+
+float root(float val)
+{
+    return sqrt(val);
+}
+
+float square(float val)
+{
+    return (val*val);
+}
 int main()
 {
 
@@ -14,7 +24,8 @@ int main()
     #pragma omp parallel
     for(int i = 0; i < count; ++i)
     {
-    	data[i] = sin(data[i]);
+    	float v = root(data[i]);
+        data[i] = v*square(data[i]);
     }
 	return 0;
 }

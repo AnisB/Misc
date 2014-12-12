@@ -7,8 +7,9 @@ OPENCL= -lOpenCL
 CXX = g++
 endif
 FLAG = -std=c++11
+PROF = -pg
 
-all: anagram binaryfromarray doublestar hanoi hashtable instring list matrix queuebystacks removedupli reversechar simplestack simpletree spacereplace stacksorting uniqueString simpleopencl simpleopenmp
+all: anagram binaryfromarray doublestar hanoi hashtable instring list matrix queuebystacks removedupli reversechar simplestack simpletree spacereplace stacksorting uniqueString simpleopenmp
 
 anagram: anagram.cpp
 	${CXX} anagram.cpp -o anagram ${FLAG}
@@ -58,11 +59,11 @@ stacksorting: stacksorting.cpp
 uniqueString: uniqueString.cpp
 	${CXX} uniqueString.cpp -o uniqueString ${FLAG}
 
-simpleopencl: simpleopencl.cpp
-	${CXX} simpleopencl.cpp -o simpleopencl ${FLAG} ${OPENCL}
+#simpleopencl: simpleopencl.cpp
+#	${CXX} simpleopencl.cpp -o simpleopencl ${FLAG} ${OPENCL}
 
 simpleopenmp: simpleopenmp.cpp
-	${CXX} simpleopenmp.cpp -o simpleopenmp ${FLAG} -fopenmp
+	${CXX} simpleopenmp.cpp -o simpleopenmp ${FLAG} -fopenmp ${PROF}
 
 clean:
-	rm -rf *o anagram binaryfromarray doublestar hanoi hashtable instring list matrix queuebystacks removedupli reversechar simplestack simpletree spacereplace stacksorting uniqueString simpleopencl simpleopenmp
+	rm -rf *o anagram binaryfromarray doublestar hanoi hashtable instring list matrix queuebystacks removedupli reversechar simplestack simpletree spacereplace stacksorting uniqueString simpleopenmp #simpleopencl 
