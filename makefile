@@ -1,55 +1,66 @@
-
+OS := $(shell uname)
+#ifeq $(OS) Darwin
+OPENCL= -framework OpenCL
 CXX = g++-4.9
+#else
+#OPENCL= -OpenCL
+#CXX = g++
+#endif
 FLAG = -std=c++11
-all: anagram binaryfromarray doublestar hanoi hashtable instring list matrix queuebystacks removedupli reversechar simplestack simpletree spacereplace stacksorting uniqueString
 
-anagram: 
+all: anagram binaryfromarray doublestar hanoi hashtable instring list matrix queuebystacks removedupli reversechar simplestack simpletree spacereplace stacksorting uniqueString simpleopencl
+
+anagram: anagram.cpp
 	${CXX} anagram.cpp -o anagram ${FLAG}
 
-binaryfromarray: 
+binaryfromarray: binaryfromarray.cpp
 	${CXX} binaryfromarray.cpp -o binaryfromarray ${FLAG}
 
-doublestar:
+doublestar: doublestar.cpp
 	${CXX} doublestar.cpp -o doublestar ${FLAG}
 
-hanoi: 
-	${CXX} hanoi.cpp -o hanoi
+hanoi: hanoi.cpp
+	${CXX} hanoi.cpp -o hanoi ${FLAG}
 
-hashtable:
-	${CXX} hashtable.cpp -o hashtable
+hashtable: hashtable.cpp
+	${CXX} hashtable.cpp -o hashtable ${FLAG}
 
-instring: 
-	${CXX} instring.cpp -o instring
+instring: instring.cpp
+	${CXX} instring.cpp -o instring ${FLAG}
 
-list: 
-	${CXX} list.cpp -o list
+list: list.cpp
+	${CXX} list.cpp -o list ${FLAG}
 
-matrix:
-	${CXX} matrix.cpp -o matrix
+matrix: matrix.cpp
+	${CXX} matrix.cpp -o matrix ${FLAG}
 
-queuebystacks:
-	${CXX} queuebystacks.cpp -o queuebystacks
+queuebystacks: queuebystacks.cpp
+	${CXX} queuebystacks.cpp -o queuebystacks ${FLAG}
 
-removedupli:
-	${CXX} removedupli.cpp -o removedupli
+removedupli: removedupli.cpp
+	${CXX} removedupli.cpp -o removedupli ${FLAG}
 
-reversechar:
-	${CXX} reversechar.cpp -o reversechar
+reversechar: reversechar.cpp
+	${CXX} reversechar.cpp -o reversechar ${FLAG}
 
-simplestack:
-	${CXX} simplestack.cpp -o simplestack
+simplestack: simplestack.cpp
+	${CXX} simplestack.cpp -o simplestack ${FLAG}
 
-simpletree:
-	${CXX} simpletree.cpp -o simpletree
+simpletree: simpletree.cpp
+	${CXX} simpletree.cpp -o simpletree ${FLAG}
 
-spacereplace:
+spacereplace: spacereplace.cpp
 	${CXX} spacereplace.cpp -o spacereplace ${FLAG}
 
-stacksorting:
-	${CXX} stacksorting.cpp -o stacksorting
+stacksorting: stacksorting.cpp
+	${CXX} stacksorting.cpp -o stacksorting ${FLAG}
 
-uniqueString:
+uniqueString: uniqueString.cpp
 	${CXX} uniqueString.cpp -o uniqueString ${FLAG}
 
+
+simpleopencl: simpleopencl.cpp
+	${CXX} simpleopencl.cpp -o simpleopencl ${FLAG} ${OPENCL}
+
 clean:
-	rm -rf *o anagram binaryfromarray doublestar hanoi hashtable instring list matrix queuebystacks removedupli reversechar simplestack simpletree spacereplace stacksorting uniqueString
+	rm -rf *o anagram binaryfromarray doublestar hanoi hashtable instring list matrix queuebystacks removedupli reversechar simplestack simpletree spacereplace stacksorting uniqueString simpleopencl
