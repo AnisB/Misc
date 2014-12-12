@@ -1,11 +1,11 @@
 OS := $(shell uname)
-#ifeq $(OS) Darwin
+ifeq ($(OS), Darwin)
 OPENCL= -framework OpenCL
 CXX = g++-4.9
-#else
-#OPENCL= -OpenCL
-#CXX = g++
-#endif
+else
+OPENCL= -OpenCL
+CXX = g++
+endif
 FLAG = -std=c++11
 
 all: anagram binaryfromarray doublestar hanoi hashtable instring list matrix queuebystacks removedupli reversechar simplestack simpletree spacereplace stacksorting uniqueString simpleopencl simpleopenmp
