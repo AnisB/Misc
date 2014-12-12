@@ -3,7 +3,7 @@ ifeq ($(OS), Darwin)
 OPENCL= -framework OpenCL
 CXX = g++-4.9
 else
-OPENCL= -OpenCL
+OPENCL= -lOpenCL
 CXX = g++
 endif
 FLAG = -std=c++11
