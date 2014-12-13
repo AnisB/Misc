@@ -1,4 +1,4 @@
-OS := $(shell uname)
+	OS := $(shell uname)
 ifeq ($(OS), Darwin)
 OPENCL= -framework OpenCL
 CXX = g++-4.9
@@ -9,7 +9,7 @@ endif
 FLAG = -std=c++11
 PROF = -pg
 
-all: anagram binaryfromarray doublestar hanoi hashtable instring list matrix queuebystacks removedupli reversechar simplestack simpletree spacereplace stacksorting uniqueString simpleopenmp
+all: anagram binaryfromarray doublestar hanoi hashtable instring list matrix queuebystacks removedupli reversechar simplestack simpletree spacereplace stacksorting uniqueString simpleopenmp plusnoarithmoperators simpleopencl
 
 anagram: anagram.cpp
 	${CXX} anagram.cpp -o anagram ${FLAG}
@@ -65,5 +65,8 @@ uniqueString: uniqueString.cpp
 simpleopenmp: simpleopenmp.cpp
 	${CXX} simpleopenmp.cpp -o simpleopenmp ${FLAG} -fopenmp ${PROF}
 
+plusnoarithmoperators: plusnoarithmoperators.cpp
+	${CXX} plusnoarithmoperators.cpp -o plusnoarithmoperators ${FLAG}
+
 clean:
-	rm -rf *o anagram binaryfromarray doublestar hanoi hashtable instring list matrix queuebystacks removedupli reversechar simplestack simpletree spacereplace stacksorting uniqueString simpleopenmp #simpleopencl 
+	rm -rf *o anagram binaryfromarray doublestar hanoi hashtable instring list matrix queuebystacks removedupli reversechar simplestack simpletree spacereplace stacksorting uniqueString simpleopenmp  plusnoarithmoperators simpleopencl 
