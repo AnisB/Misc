@@ -9,7 +9,7 @@ endif
 FLAG = -std=c++11
 PROF = -pg
 
-all: anagram binaryfromarray doublestar hanoi hashtable instring list matrix queuebystacks removedupli reversechar simplestack simpletree spacereplace stacksorting uniqueString simpleopenmp plusnoarithmoperators simpleopencl
+all: anagram binaryfromarray doublestar hanoi hashtable instring list matrix queuebystacks removedupli reversechar simplestack simpletree spacereplace stacksorting uniqueString simpleopenmp plusnoarithmoperators simpleopencl transpMatrix
 
 anagram: anagram.cpp
 	${CXX} anagram.cpp -o anagram ${FLAG}
@@ -59,8 +59,11 @@ stacksorting: stacksorting.cpp
 uniqueString: uniqueString.cpp
 	${CXX} uniqueString.cpp -o uniqueString ${FLAG}
 
-#simpleopencl: simpleopencl.cpp
-#	${CXX} simpleopencl.cpp -o simpleopencl ${FLAG} ${OPENCL}
+simpleopencl: simpleopencl.cpp
+	${CXX} simpleopencl.cpp -o simpleopencl ${FLAG} ${OPENCL}
+
+transpMatrix: transpMatrix.cpp
+	${CXX} transpMatrix.cpp -o transpMatrix ${FLAG} ${OPENCL}
 
 simpleopenmp: simpleopenmp.cpp
 	${CXX} simpleopenmp.cpp -o simpleopenmp ${FLAG} -fopenmp ${PROF}
@@ -69,4 +72,4 @@ plusnoarithmoperators: plusnoarithmoperators.cpp
 	${CXX} plusnoarithmoperators.cpp -o plusnoarithmoperators ${FLAG}
 
 clean:
-	rm -rf *o anagram binaryfromarray doublestar hanoi hashtable instring list matrix queuebystacks removedupli reversechar simplestack simpletree spacereplace stacksorting uniqueString simpleopenmp  plusnoarithmoperators simpleopencl 
+	rm -rf *o anagram binaryfromarray doublestar hanoi hashtable instring list matrix queuebystacks removedupli reversechar simplestack simpletree spacereplace stacksorting uniqueString simpleopenmp  plusnoarithmoperators simpleopencl transpMatrix 
