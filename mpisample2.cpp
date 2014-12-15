@@ -43,7 +43,7 @@ int main(int argc, char** argv)
 			printf("%f %f\n",buff[i],buff2[i]);
 		}
 		free(requests);
-		free(status);
+		free(statuts);
 		free(buff);
 		free(buff2)
 	}
