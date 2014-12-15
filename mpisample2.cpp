@@ -42,6 +42,10 @@ int main(int argc, char** argv)
 		{
 			printf("%f %f\n",buff[i],buff2[i]);
 		}
+		free(requests);
+		free(status);
+		free(buff);
+		free(buff2)
 	}
 	else	
 	{
@@ -57,6 +61,7 @@ int main(int argc, char** argv)
 		}
 		MPI_Isend(buff, length, MPI_FLOAT, 0, 0, MPI_COMM_WORLD, &request);
 		MPI_Waitall(1, &request, &statut);
+		free(buff);
 	}
 	MPI_Finalize();
 	return 0;
